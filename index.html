@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CardShark — Card Catalog Format</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         max-width: 820px; margin: 2rem auto; padding: 0 1rem; }
+  h1 { margin-bottom: .25rem; }
+  .sub { color: #888; margin-top: 0; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  pre { background: rgba(127,127,127,.12); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: .5rem 0 1.5rem; }
+  th, td { border: 1px solid rgba(127,127,127,.3); padding: .4rem .6rem; text-align: left; vertical-align: top; }
+  th { background: rgba(127,127,127,.12); }
+  .note { background: rgba(255,159,10,.14); border-left: 4px solid #FF9F0A; padding: .8rem 1rem; border-radius: 6px; }
+  .req { color: #c0392b; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>CardShark — Card Catalog Format</h1>
+<p class="sub">The CardShark iOS app fetches this catalog to power the "Add from Catalog" picker.
+Manually maintained. → <a href="card-catalog.json">card-catalog.json</a></p>
+
+<div class="note">
+  <strong>Not financial advice.</strong> Reward rates change often. These entries are a curated
+  starting point — always verify a card's current terms with the issuer. The app shows a
+  "verify current terms" note when a card is added.
+</div>
+
+<h2>File shape</h2>
+<pre>{
+  "version": 1,               // schema version (integer)
+  "generatedAt": "2026-06-22T00:00:00Z",  // optional ISO-8601 timestamp
+  "cards": [ Card, Card, ... ]
+}</pre>
+<p>Unknown fields are ignored, so the file is forward-compatible. The app re-validates every entry
+and falls back to its bundled copy if the file is missing, malformed, or unreachable.</p>
+
+<h2>Card</h2>
+<table>
+  <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+  <tr><td><code>displayName</code> <span class="req">*</span></td><td>string</td><td>e.g. "Amex Gold". Cards with an empty name are dropped.</td></tr>
+  <tr><td><code>shortName</code></td><td>string?</td><td>Compact label for pills; falls back to displayName.</td></tr>
+  <tr><td><code>issuer</code></td><td>string</td><td>Free text, e.g. "American Express", "Chase", "Citi". Used to group the picker.</td></tr>
+  <tr><td><code>network</code></td><td>enum</td><td><code>visa</code> · <code>mc</code> · <code>amex</code> · <code>discover</code></td></tr>
+  <tr><td><code>currency</code></td><td>enum</td><td><code>cashback</code> · <code>chaseUR</code> · <code>amexMR</code> · <code>capitalOneMiles</code> · <code>citiTYP</code> · <code>other</code></td></tr>
+  <tr><td><code>baseRate</code> <span class="req">*</span></td><td>number</td><td>Everywhere earn rate (see <em>rate semantics</em>).</td></tr>
+  <tr><td><code>isPointsBase</code> <span class="req">*</span></td><td>bool</td><td>true → <code>baseRate</code> is points/$; false → cashback fraction.</td></tr>
+  <tr><td><code>hasAnnualFee</code></td><td>bool?</td><td>Ranking tiebreaker (prefer no-fee on ties).</td></tr>
+  <tr><td><code>tintColorHex</code></td><td>string?</td><td><code>#RRGGBB</code>. Invalid values are replaced with a default color.</td></tr>
+  <tr><td><code>rules</code></td><td>[Rule]</td><td>Category bonus rules (may be empty).</td></tr>
+</table>
+
+<h2>Rule</h2>
+<table>
+  <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+  <tr><td><code>category</code> <span class="req">*</span></td><td>enum</td><td><code>dining</code> · <code>grocery</code> · <code>gas</code> · <code>travel</code> · <code>drugstore</code> · <code>transit</code> · <code>streaming</code> · <code>online</code> · <code>other</code></td></tr>
+  <tr><td><code>rate</code> <span class="req">*</span></td><td>number</td><td>See <em>rate semantics</em>.</td></tr>
+  <tr><td><code>isPoints</code> <span class="req">*</span></td><td>bool</td><td>true → points/$; false → cashback fraction.</td></tr>
+  <tr><td><code>requiresActivation</code></td><td>bool?</td><td>Rotating/quarterly category needing enrollment.</td></tr>
+  <tr><td><code>isActiveThisQuarter</code></td><td>bool?</td><td>User toggle (leave false in the catalog).</td></tr>
+  <tr><td><code>hasCap</code></td><td>bool?</td><td>Whether the bonus has a spend cap.</td></tr>
+  <tr><td><code>capExhausted</code></td><td>bool?</td><td>User toggle (leave false in the catalog).</td></tr>
+  <tr><td><code>capNote</code></td><td>string?</td><td>Free text, e.g. "$1,500/qtr".</td></tr>
+  <tr><td><code>isExcluded</code></td><td>bool?</td><td>Bonus excluded at some merchants (rare).</td></tr>
+</table>
+
+<h2>Rate semantics</h2>
+<p>When <code>isPoints</code>/<code>isPointsBase</code> is <strong>true</strong>, <code>rate</code>
+is <strong>points per dollar</strong> (<code>4.0</code> = 4×). When <strong>false</strong>, it is a
+<strong>cashback fraction</strong> (<code>0.02</code> = 2%). Validation bounds: points rates
+<code>0…100</code>, cashback fractions <code>0…1</code> — entries outside these are dropped.</p>
+
+<h2>Example card</h2>
+<pre>{
+  "displayName": "Amex Gold",
+  "issuer": "American Express",
+  "network": "amex",
+  "currency": "amexMR",
+  "baseRate": 1.0,          // 1x points everywhere
+  "isPointsBase": true,
+  "hasAnnualFee": true,
+  "tintColorHex": "#FF9F0A",
+  "rules": [
+    { "category": "dining",  "rate": 4.0, "isPoints": true, "hasCap": true, "capNote": "4x on first $50k/yr dining" },
+    { "category": "grocery", "rate": 4.0, "isPoints": true, "hasCap": true, "capNote": "4x on first $25k/yr U.S. supermarkets" }
+  ]
+}</pre>
+
+<p style="color:#888"><span class="req">*</span> required · fields marked <code>?</code> are optional.</p>
+
+</body>
+</html>

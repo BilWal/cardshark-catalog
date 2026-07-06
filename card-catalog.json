@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "generatedAt": "2026-06-22T00:00:00Z",
+  "cards": [
+    {
+      "displayName": "Amex Gold",
+      "shortName": "Amex Gold",
+      "issuer": "American Express",
+      "network": "amex",
+      "currency": "amexMR",
+      "baseRate": 1.0,
+      "isPointsBase": true,
+      "hasAnnualFee": true,
+      "tintColorHex": "#FF9F0A",
+      "rules": [
+        { "category": "dining",  "rate": 4.0, "isPoints": true, "hasCap": true,  "capNote": "4x on first $50k/yr dining" },
+        { "category": "grocery", "rate": 4.0, "isPoints": true, "hasCap": true,  "capNote": "4x on first $25k/yr U.S. supermarkets, then 1x" },
+        { "category": "travel",  "rate": 3.0, "isPoints": true, "hasCap": false, "capNote": "flights booked direct/Amex Travel" }
+      ]
+    },
+    {
+      "displayName": "Chase Sapphire Preferred",
+      "shortName": "Sapphire",
+      "issuer": "Chase",
+      "network": "visa",
+      "currency": "chaseUR",
+      "baseRate": 1.0,
+      "isPointsBase": true,
+      "hasAnnualFee": true,
+      "tintColorHex": "#0A84FF",
+      "rules": [
+        { "category": "dining",    "rate": 3.0, "isPoints": true, "hasCap": false },
+        { "category": "streaming", "rate": 3.0, "isPoints": true, "hasCap": false },
+        { "category": "online",    "rate": 3.0, "isPoints": true, "hasCap": false, "capNote": "online grocery (excl. Target/Walmart/wholesale)" },
+        { "category": "travel",    "rate": 2.0, "isPoints": true, "hasCap": false, "capNote": "5x via Chase Travel" }
+      ]
+    },
+    {
+      "displayName": "Chase Freedom Flex",
+      "shortName": "Freedom Flex",
+      "issuer": "Chase",
+      "network": "mc",
+      "currency": "chaseUR",
+      "baseRate": 0.01,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#30D158",
+      "rules": [
+        { "category": "drugstore", "rate": 0.03, "isPoints": false, "hasCap": false },
+        { "category": "dining",    "rate": 0.03, "isPoints": false, "hasCap": false },
+        { "category": "other",     "rate": 0.05, "isPoints": false, "requiresActivation": true, "isActiveThisQuarter": false, "hasCap": true, "capNote": "5% rotating category, up to $1,500/qtr, must activate" }
+      ]
+    },
+    {
+      "displayName": "Citi Custom Cash",
+      "shortName": "Custom Cash",
+      "issuer": "Citi",
+      "network": "mc",
+      "currency": "cashback",
+      "baseRate": 0.01,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#BF5AF2",
+      "rules": [
+        { "category": "dining", "rate": 0.05, "isPoints": false, "hasCap": true, "capNote": "5% on your top eligible category, up to $500/billing cycle" }
+      ]
+    },
+    {
+      "displayName": "Citi Double Cash",
+      "shortName": "Double Cash",
+      "issuer": "Citi",
+      "network": "mc",
+      "currency": "cashback",
+      "baseRate": 0.02,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#40C8E0",
+      "rules": []
+    }
+  ]
+}
