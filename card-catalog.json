@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-22T00:00:00Z",
+  "generatedAt": "2026-07-07T00:00:00Z",
   "cards": [
     {
       "displayName": "Amex Gold",
@@ -13,9 +13,56 @@
       "hasAnnualFee": true,
       "tintColorHex": "#FF9F0A",
       "rules": [
-        { "category": "dining",  "rate": 4.0, "isPoints": true, "hasCap": true,  "capNote": "4x on first $50k/yr dining" },
-        { "category": "grocery", "rate": 4.0, "isPoints": true, "hasCap": true,  "capNote": "4x on first $25k/yr U.S. supermarkets, then 1x" },
-        { "category": "travel",  "rate": 3.0, "isPoints": true, "hasCap": false, "capNote": "flights booked direct/Amex Travel" }
+        { "category": "dining",  "rate": 4.0, "isPoints": true, "hasCap": true,  "capNote": "4x at restaurants worldwide on first $50k/yr, then 1x" },
+        { "category": "grocery", "rate": 4.0, "isPoints": true, "hasCap": true,  "capNote": "4x at U.S. supermarkets on first $25k/yr, then 1x; excl. superstores & warehouse clubs" },
+        { "category": "travel",  "rate": 3.0, "isPoints": true, "hasCap": false, "capNote": "3x on flights booked directly with airlines or via Amex Travel" }
+      ]
+    },
+    {
+      "displayName": "Amex Platinum",
+      "shortName": "Amex Plat",
+      "issuer": "American Express",
+      "network": "amex",
+      "currency": "amexMR",
+      "baseRate": 1.0,
+      "isPointsBase": true,
+      "hasAnnualFee": true,
+      "tintColorHex": "#BF5AF2",
+      "rules": [
+        { "category": "travel", "rate": 5.0, "isPoints": true, "hasCap": true, "capNote": "5x on flights booked directly with airlines or via Amex Travel (up to $500k/yr); 5x on prepaid hotels via Amex Travel" }
+      ]
+    },
+    {
+      "displayName": "Amex Blue Cash Preferred",
+      "shortName": "BCP",
+      "issuer": "American Express",
+      "network": "amex",
+      "currency": "cashback",
+      "baseRate": 0.01,
+      "isPointsBase": false,
+      "hasAnnualFee": true,
+      "tintColorHex": "#0A84FF",
+      "rules": [
+        { "category": "grocery",   "rate": 0.06, "isPoints": false, "hasCap": true,  "capNote": "6% at U.S. supermarkets on first $6,000/yr, then 1%; excl. superstores & warehouse clubs" },
+        { "category": "streaming", "rate": 0.06, "isPoints": false, "hasCap": false, "capNote": "6% on select U.S. streaming subscriptions (Netflix, Disney+, Hulu, Max, Spotify, Apple TV+, and others)" },
+        { "category": "gas",       "rate": 0.03, "isPoints": false, "hasCap": false, "capNote": "3% at U.S. gas stations" },
+        { "category": "transit",   "rate": 0.03, "isPoints": false, "hasCap": false, "capNote": "3% on transit incl. taxis, rideshares, buses, trains, tolls, and parking" }
+      ]
+    },
+    {
+      "displayName": "Amex Blue Cash Everyday",
+      "shortName": "BCE",
+      "issuer": "American Express",
+      "network": "amex",
+      "currency": "cashback",
+      "baseRate": 0.01,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#40C8E0",
+      "rules": [
+        { "category": "grocery", "rate": 0.03, "isPoints": false, "hasCap": true, "capNote": "3% at U.S. supermarkets on first $6,000/yr, then 1%; excl. superstores & warehouse clubs" },
+        { "category": "gas",     "rate": 0.03, "isPoints": false, "hasCap": true, "capNote": "3% at U.S. gas stations on first $6,000/yr, then 1%" },
+        { "category": "online",  "rate": 0.03, "isPoints": false, "hasCap": true, "capNote": "3% on U.S. online retail purchases on first $6,000/yr, then 1%" }
       ]
     },
     {
@@ -31,8 +78,24 @@
       "rules": [
         { "category": "dining",    "rate": 3.0, "isPoints": true, "hasCap": false },
         { "category": "streaming", "rate": 3.0, "isPoints": true, "hasCap": false },
-        { "category": "online",    "rate": 3.0, "isPoints": true, "hasCap": false, "capNote": "online grocery (excl. Target/Walmart/wholesale)" },
-        { "category": "travel",    "rate": 2.0, "isPoints": true, "hasCap": false, "capNote": "5x via Chase Travel" }
+        { "category": "online",    "rate": 3.0, "isPoints": true, "hasCap": false, "capNote": "3x on online grocery; excl. Target, Walmart, and wholesale clubs" },
+        { "category": "gas",       "rate": 3.0, "isPoints": true, "hasCap": false, "capNote": "3x at gas stations and EV charging" },
+        { "category": "travel",    "rate": 5.0, "isPoints": true, "hasCap": false, "capNote": "5x via Chase Travel; 2x on all other travel worldwide" }
+      ]
+    },
+    {
+      "displayName": "Chase Sapphire Reserve",
+      "shortName": "Reserve",
+      "issuer": "Chase",
+      "network": "visa",
+      "currency": "chaseUR",
+      "baseRate": 1.0,
+      "isPointsBase": true,
+      "hasAnnualFee": true,
+      "tintColorHex": "#30D158",
+      "rules": [
+        { "category": "dining",  "rate": 3.0, "isPoints": true, "hasCap": false },
+        { "category": "travel",  "rate": 8.0, "isPoints": true, "hasCap": false, "capNote": "8x via Chase Travel/The Edit; 4x on flights or hotels booked directly" }
       ]
     },
     {
@@ -44,25 +107,88 @@
       "baseRate": 0.01,
       "isPointsBase": false,
       "hasAnnualFee": false,
-      "tintColorHex": "#30D158",
+      "tintColorHex": "#FF9F0A",
       "rules": [
-        { "category": "drugstore", "rate": 0.03, "isPoints": false, "hasCap": false },
         { "category": "dining",    "rate": 0.03, "isPoints": false, "hasCap": false },
-        { "category": "other",     "rate": 0.05, "isPoints": false, "requiresActivation": true, "isActiveThisQuarter": false, "hasCap": true, "capNote": "5% rotating category, up to $1,500/qtr, must activate" }
+        { "category": "drugstore", "rate": 0.03, "isPoints": false, "hasCap": false },
+        { "category": "travel",    "rate": 0.05, "isPoints": false, "hasCap": false, "capNote": "5% via Chase Travel portal" },
+        { "category": "gas",       "rate": 0.05, "isPoints": false, "hasCap": true, "requiresActivation": true, "isActiveThisQuarter": false, "capNote": "5% rotating Q3 2026 (gas & EV charging), up to $1,500/qtr combined; activate each quarter at Chase.com" },
+        { "category": "transit",   "rate": 0.05, "isPoints": false, "hasCap": true, "requiresActivation": true, "isActiveThisQuarter": false, "capNote": "5% rotating Q3 2026 (public transit), up to $1,500/qtr combined; activate each quarter at Chase.com" }
       ]
     },
     {
-      "displayName": "Citi Custom Cash",
-      "shortName": "Custom Cash",
-      "issuer": "Citi",
+      "displayName": "Chase Freedom Unlimited",
+      "shortName": "Freedom Unltd",
+      "issuer": "Chase",
+      "network": "visa",
+      "currency": "chaseUR",
+      "baseRate": 0.015,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#BF5AF2",
+      "rules": [
+        { "category": "dining",    "rate": 0.03, "isPoints": false, "hasCap": false },
+        { "category": "drugstore", "rate": 0.03, "isPoints": false, "hasCap": false },
+        { "category": "travel",    "rate": 0.05, "isPoints": false, "hasCap": false, "capNote": "5% via Chase Travel portal" }
+      ]
+    },
+    {
+      "displayName": "Capital One Venture X",
+      "shortName": "Venture X",
+      "issuer": "Capital One",
+      "network": "visa",
+      "currency": "capitalOneMiles",
+      "baseRate": 2.0,
+      "isPointsBase": true,
+      "hasAnnualFee": true,
+      "tintColorHex": "#FF375F",
+      "rules": [
+        { "category": "travel", "rate": 10.0, "isPoints": true, "hasCap": false, "capNote": "10x on hotels & rental cars via Capital One Travel; 5x on flights & vacation rentals via Capital One Travel" }
+      ]
+    },
+    {
+      "displayName": "Capital One Venture",
+      "shortName": "Venture",
+      "issuer": "Capital One",
+      "network": "visa",
+      "currency": "capitalOneMiles",
+      "baseRate": 2.0,
+      "isPointsBase": true,
+      "hasAnnualFee": true,
+      "tintColorHex": "#FF9F0A",
+      "rules": [
+        { "category": "travel", "rate": 5.0, "isPoints": true, "hasCap": false, "capNote": "5x on hotels, vacation rentals & rental cars via Capital One Travel" }
+      ]
+    },
+    {
+      "displayName": "Capital One Quicksilver",
+      "shortName": "Quicksilver",
+      "issuer": "Capital One",
+      "network": "mc",
+      "currency": "cashback",
+      "baseRate": 0.015,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#40C8E0",
+      "rules": [
+        { "category": "travel", "rate": 0.05, "isPoints": false, "hasCap": false, "capNote": "5% on hotels & rental cars via Capital One Travel" }
+      ]
+    },
+    {
+      "displayName": "Capital One Savor",
+      "shortName": "Savor",
+      "issuer": "Capital One",
       "network": "mc",
       "currency": "cashback",
       "baseRate": 0.01,
       "isPointsBase": false,
       "hasAnnualFee": false,
-      "tintColorHex": "#BF5AF2",
+      "tintColorHex": "#FF375F",
       "rules": [
-        { "category": "dining", "rate": 0.05, "isPoints": false, "hasCap": true, "capNote": "5% on your top eligible category, up to $500/billing cycle" }
+        { "category": "dining",    "rate": 0.03, "isPoints": false, "hasCap": false },
+        { "category": "grocery",   "rate": 0.03, "isPoints": false, "hasCap": false, "capNote": "3% at grocery stores; excl. Walmart and Target" },
+        { "category": "streaming", "rate": 0.03, "isPoints": false, "hasCap": false },
+        { "category": "travel",    "rate": 0.05, "isPoints": false, "hasCap": false, "capNote": "5% on hotels, vacation rentals & rental cars via Capital One Travel" }
       ]
     },
     {
@@ -70,12 +196,129 @@
       "shortName": "Double Cash",
       "issuer": "Citi",
       "network": "mc",
-      "currency": "cashback",
+      "currency": "citiTYP",
       "baseRate": 0.02,
       "isPointsBase": false,
       "hasAnnualFee": false,
       "tintColorHex": "#40C8E0",
       "rules": []
+    },
+    {
+      "displayName": "Citi Custom Cash",
+      "shortName": "Custom Cash",
+      "issuer": "Citi",
+      "network": "mc",
+      "currency": "citiTYP",
+      "baseRate": 0.01,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#BF5AF2",
+      "rules": [
+        { "category": "dining",    "rate": 0.05, "isPoints": false, "hasCap": true, "capNote": "5% auto-applied to your single top eligible spend category each billing cycle, up to $500/cycle; eligible categories include dining, grocery, gas, travel, transit, streaming, and drugstores" },
+        { "category": "grocery",   "rate": 0.05, "isPoints": false, "hasCap": true, "capNote": "5% auto-applied to your single top eligible spend category each billing cycle, up to $500/cycle" },
+        { "category": "gas",       "rate": 0.05, "isPoints": false, "hasCap": true, "capNote": "5% auto-applied to your single top eligible spend category each billing cycle, up to $500/cycle" },
+        { "category": "travel",    "rate": 0.05, "isPoints": false, "hasCap": true, "capNote": "5% auto-applied to your single top eligible spend category each billing cycle, up to $500/cycle" },
+        { "category": "transit",   "rate": 0.05, "isPoints": false, "hasCap": true, "capNote": "5% auto-applied to your single top eligible spend category each billing cycle, up to $500/cycle" },
+        { "category": "streaming", "rate": 0.05, "isPoints": false, "hasCap": true, "capNote": "5% auto-applied to your single top eligible spend category each billing cycle, up to $500/cycle" },
+        { "category": "drugstore", "rate": 0.05, "isPoints": false, "hasCap": true, "capNote": "5% auto-applied to your single top eligible spend category each billing cycle, up to $500/cycle" }
+      ]
+    },
+    {
+      "displayName": "Discover it Cash Back",
+      "shortName": "Discover it",
+      "issuer": "Discover",
+      "network": "discover",
+      "currency": "cashback",
+      "baseRate": 0.01,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#FF9F0A",
+      "rules": [
+        { "category": "gas",       "rate": 0.05, "isPoints": false, "hasCap": true, "requiresActivation": true, "isActiveThisQuarter": false, "capNote": "5% rotating Q3 2026 (gas & EV charging), up to $1,500/qtr combined; activate each quarter at Discover.com" },
+        { "category": "transit",   "rate": 0.05, "isPoints": false, "hasCap": true, "requiresActivation": true, "isActiveThisQuarter": false, "capNote": "5% rotating Q3 2026 (public transit), up to $1,500/qtr combined; activate each quarter" },
+        { "category": "drugstore", "rate": 0.05, "isPoints": false, "hasCap": true, "requiresActivation": true, "isActiveThisQuarter": false, "capNote": "5% rotating Q3 2026 (drugstores), up to $1,500/qtr combined; activate each quarter" }
+      ]
+    },
+    {
+      "displayName": "Wells Fargo Active Cash",
+      "shortName": "Active Cash",
+      "issuer": "Wells Fargo",
+      "network": "visa",
+      "currency": "cashback",
+      "baseRate": 0.02,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#30D158",
+      "rules": []
+    },
+    {
+      "displayName": "Bank of America Customized Cash Rewards",
+      "shortName": "BofA Custom",
+      "issuer": "Bank of America",
+      "network": "visa",
+      "currency": "cashback",
+      "baseRate": 0.01,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#FF375F",
+      "rules": [
+        { "category": "gas",       "rate": 0.03, "isPoints": false, "hasCap": true, "capNote": "3% in your chosen category (gas, online shopping, dining, travel, drug stores, or home improvement) — changeable once/month; $2,500/qtr cap on combined 3%+2% purchases, then 1%" },
+        { "category": "online",    "rate": 0.03, "isPoints": false, "hasCap": true, "capNote": "3% in your chosen category — changeable once/month; $2,500/qtr cap on combined 3%+2% purchases, then 1%" },
+        { "category": "dining",    "rate": 0.03, "isPoints": false, "hasCap": true, "capNote": "3% in your chosen category — changeable once/month; $2,500/qtr cap on combined 3%+2% purchases, then 1%" },
+        { "category": "travel",    "rate": 0.03, "isPoints": false, "hasCap": true, "capNote": "3% in your chosen category — changeable once/month; $2,500/qtr cap on combined 3%+2% purchases, then 1%" },
+        { "category": "drugstore", "rate": 0.03, "isPoints": false, "hasCap": true, "capNote": "3% in your chosen category — changeable once/month; $2,500/qtr cap on combined 3%+2% purchases, then 1%" },
+        { "category": "grocery",   "rate": 0.02, "isPoints": false, "hasCap": true, "capNote": "2% at grocery stores & wholesale clubs; $2,500/qtr cap on combined 3%+2% purchases, then 1%" }
+      ]
+    },
+    {
+      "displayName": "U.S. Bank Altitude Go",
+      "shortName": "Altitude Go",
+      "issuer": "U.S. Bank",
+      "network": "visa",
+      "currency": "cashback",
+      "baseRate": 0.01,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#40C8E0",
+      "rules": [
+        { "category": "dining",    "rate": 0.04, "isPoints": false, "hasCap": true,  "capNote": "4% on dining & takeout on first $2,000/quarter, then 1%" },
+        { "category": "grocery",   "rate": 0.02, "isPoints": false, "hasCap": false },
+        { "category": "gas",       "rate": 0.02, "isPoints": false, "hasCap": false },
+        { "category": "streaming", "rate": 0.02, "isPoints": false, "hasCap": false }
+      ]
+    },
+    {
+      "displayName": "Apple Card",
+      "shortName": "Apple Card",
+      "issuer": "Goldman Sachs",
+      "network": "mc",
+      "currency": "cashback",
+      "baseRate": 0.02,
+      "isPointsBase": false,
+      "hasAnnualFee": false,
+      "tintColorHex": "#BF5AF2",
+      "rules": [
+        { "category": "drugstore", "rate": 0.03, "isPoints": false, "hasCap": false, "capNote": "3% Daily Cash at Walgreens and Ace Hardware via Apple Pay" },
+        { "category": "dining",    "rate": 0.03, "isPoints": false, "hasCap": false, "capNote": "3% Daily Cash at Uber Eats and Panera via Apple Pay; base 2% applies to all other dining with Apple Pay" },
+        { "category": "gas",       "rate": 0.03, "isPoints": false, "hasCap": false, "capNote": "3% Daily Cash at Exxon and Mobil via Apple Pay" },
+        { "category": "transit",   "rate": 0.03, "isPoints": false, "hasCap": false, "capNote": "3% Daily Cash at Hertz via Apple Pay; base 2% on all other Apple Pay transit" }
+      ]
+    },
+    {
+      "displayName": "Bilt Mastercard",
+      "shortName": "Bilt",
+      "issuer": "Wells Fargo",
+      "network": "mc",
+      "currency": "other",
+      "baseRate": 1.0,
+      "isPointsBase": true,
+      "hasAnnualFee": false,
+      "tintColorHex": "#30D158",
+      "rules": [
+        { "category": "dining",  "rate": 3.0, "isPoints": true, "hasCap": false, "capNote": "3x dining (or swap to 3x grocery — choose one category per card)" },
+        { "category": "grocery", "rate": 3.0, "isPoints": true, "hasCap": false, "capNote": "3x grocery (or swap to 3x dining — choose one category per card)" },
+        { "category": "travel",  "rate": 2.0, "isPoints": true, "hasCap": false, "capNote": "2x on travel booked directly with airlines, hotels, and car rental companies" }
+      ]
     }
   ]
 }
